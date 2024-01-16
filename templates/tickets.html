@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+
+
+
+<div class="tickets row">
+    <div class="orders-wrapper col-12">
+        <div class="tickets-page-title d-flex flex-column flex-md-row justify-content-md-between align-items-start">
+            <div class="filter-wrap">
+                <div class="page-caption">Help Desk</div>
+                <div class="page-sub-caption">Create a new ticket in case you need to contact Writer Manager.</div>
+            </div>
+            <button class="btn-darkblack btn"  data-ticket-modal-hot-desc="1" type="button">Create new ticket</button>
+        </div>
+
+                    <div class="orders-search" data-help-desk-filters="">
+            <form class="filter-search-wrap" action="" id="form-help-desk">
+
+                <div class="filter-title-mob w-100">
+                    <div class="fullscreen-filters-title">Filters</div>
+                    <button class="close-fullscreen-filters btn" data-ticket-close-filters=""></button>
+                </div>
+
+                <input  type="text" placeholder="Search by keyword or Ticket ID"
+                        name="query_string" autocomplete="off" id="search-by-order"
+                        class="search-inline live-search-box"  data-valid-latin-digit="">
+                <div class="filter_r_wrap">
+                    <div class="filter-ticket-categories filter-single-wrap">
+                        <label for="ticket-categories">Categories:</label>
+                        <div class="filter-single-inner">
+                            <select id="ticket-categories"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="category[]">
+                                <option value="any" selected>All</option>
+                                <option value="1" >Suggestion/Complaint</option>
+                                <option value="5" >Fine/bonus</option>
+                                <option value="3" >Payment</option>
+                                <option value="4" >Contact information change</option>
+                                <option value="2" >Technical problem</option>
+                                <option value="6" >Account termination</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-ticket-status filter-single-wrap">
+                        <label for="help-desk-status">Status</label>
+                        <div class="filter-single-inner">
+                            <select id="help-desk-status"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="status[]">
+                                <option value="any" >Any</option>
+                                <option value="active" selected>Active</option>
+                                <option value="archived" >Archived</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-footer">
+                        <div class="filter-footer-btns">
+                            <button class="btn-close-filters btn-custom btn-transparent" data-ticket-close-filters="" type="button">Cancel</button>
+                            <button class="btn-start-search submit_btn btn-custom d-flex" data-button-submit-form-tickets-filter="" type="button">
+                                <span data-search-text="">Search</span>
+                            </button>   
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        
+                    <div class="set-filter-list" data-filter-set-block="" style="display:none;">
+            <div class="set-filter-item" data-filter-set-item-template="" style="display:none;">
+                <span data-filter-set-text=""></span>
+                <button class="del-seted-filter btn"></button>
+            </div> 
+                                 
+            <button class="clear-seted-filter btn" data-clear-filter="">Clear all</button>
+        </div>
+                   
+
+        <div class="order-list-inner" data-block-order-list-filters="">
+
+            <div class="orders-caption d-flex justify-content-between">
+                <div class="order-numbers-count d-flex align-items-center" data-counter-help-desk=""></div>
+                <button class="ticket-add-filters btn">Add filters</button>
+            </div>
+
+            <div class="order-main-wrap" >                                                           
+                <div class="list-content" data-all-items-loaded="true"></div> 
+                <div data-block-not-found-tickets=""></div>      
+            </div>
+                                                                      
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

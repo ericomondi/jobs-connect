@@ -1,0 +1,455 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+
+
+<div class="available-orders-page general-orders-page row">
+    <div class="orders-wrapper col-12">
+        <div class="filter-wrap">
+            <div class="page-caption">Available orders</div>  
+                            <div class="saved-filters-wrap filter-hidden-area  align-items-start" data-block-saved-searches="" style="display: none">
+                <div class="saved-filters-title d-flex">Saved searches:</div>
+                <div class="saved-filters-list flex-wrap col" data-list-saved-searches="">
+                </div>
+                <button class="saved-filters-collapse btn" style="display: none"></button>
+            </div>
+                                            <div class="main-filter-area filter-hidden-area">
+                <form action="" id="form-available-orders" data-init-params="" data-choosen-saved-search-params="">
+                <div class="filter-search-wrap col-12">
+                    <div class="fullscreen-filters-title">Filters</div>
+                    <input type="hidden" value="375521632" name="wind">
+                                            <div class="filter-single-inner">
+                        <input type="text" placeholder="Search by keyword or Order ID"  autocomplete="off" id="search" data-valid-latin-digit="" class="search-inline live-search-box" name="query_string" >
+                        <button class="search-mobile-btn btn d-block d-md-none" data-button-submit-form-available-filter=""></button>
+                    </div>
+                </div>
+                <div class="filters-inner row" style="display: none">
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <div class="filter-single-inner">
+                            <label for="type-of-work">Type of work</label>
+                            <select id="type-of-work"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="type_of_work[]">
+                                <option value='any' data-select2-id=""  selected>Any</option>
+                                <option value='2'  data-select2-id="">Editing / Proofreading</option>
+                                <option value='1'  data-select2-id="">Writing from scratch</option>
+                                <option value='3'  data-select2-id="">Calculations & Problem solving</option>
+                                <option value='7'  data-select2-id="">Paper feedback</option>
+                                <option value='4'  data-select2-id="">Programming & Related</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <div class="filter-single-inner">
+                            <label for="type-of-paper">Type of paper</label>
+                            <select id="type-of-paper" data-placeholder="Select type of paper"
+                                    class="select2-multi-search form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="type_of_paper[]" data-show-selected="true" data-valid-latin="true">
+                                <option value="any" data-select2-id="" selected="selected">Any</option>
+                                                                                                                                                                    <option value="Admission essay"  data-select2-id="">Admission essay</option>
+                                                                                                                                                                                                                                                        <option value="Annotated bibliography"  data-select2-id="">Annotated bibliography</option>
+                                                                                                                                                                                                                                                        <option value="Application letter"  data-select2-id="">Application letter</option>
+                                                                                                                                                                                                                                                        <option value="Argumentative essay"  data-select2-id="">Argumentative essay</option>
+                                                                                                                                                                                                                                                        <option value="Article"  data-select2-id="">Article</option>
+                                                                                                                                                                                                                                                        <option value="Article review"  data-select2-id="">Article review</option>
+                                                                                                                                                                                                                                                        <option value="Biography"  data-select2-id="">Biography</option>
+                                                                                                                                                                                                                                                        <option value="Biology Assignment"  data-select2-id="">Biology Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Blog writing"  data-select2-id="">Blog writing</option>
+                                                                                                                                                                                                                                                        <option value="Book review"  data-select2-id="">Book review</option>
+                                                                                                                                                                                                                                                        <option value="Business plan"  data-select2-id="">Business plan</option>
+                                                                                                                                                                                                                                                        <option value="Capstone project"  data-select2-id="">Capstone project</option>
+                                                                                                                                                                                                                                                        <option value="Case study"  data-select2-id="">Case study</option>
+                                                                                                                                                                                                                                                        <option value="Chemistry Assignment"  data-select2-id="">Chemistry Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Cover letter"  data-select2-id="">Cover letter</option>
+                                                                                                                                                                                                                                                        <option value="Creative writing"  data-select2-id="">Creative writing</option>
+                                                                                                                                                                                                                                                        <option value="Critical thinking"  data-select2-id="">Critical thinking</option>
+                                                                                                                                                                                                                                                        <option value="Curriculum vitae"  data-select2-id="">Curriculum vitae</option>
+                                                                                                                                                                                                                                                        <option value="Discussion board post"  data-select2-id="">Discussion board post</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation"  data-select2-id="">Dissertation</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation abstract"  data-select2-id="">Dissertation abstract</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation chapter"  data-select2-id="">Dissertation chapter</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation conclusion"  data-select2-id="">Dissertation conclusion</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation hypothesis"  data-select2-id="">Dissertation hypothesis</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation introduction"  data-select2-id="">Dissertation introduction</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation methodology"  data-select2-id="">Dissertation methodology</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation proposal"  data-select2-id="">Dissertation proposal</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation results"  data-select2-id="">Dissertation results</option>
+                                                                                                                                                                                                                                                        <option value="Dissertation topics"  data-select2-id="">Dissertation topics</option>
+                                                                                                                                                                                                                                                        <option value="Engineering Assignment"  data-select2-id="">Engineering Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Essay"  data-select2-id="">Essay</option>
+                                                                                                                                                                                                                                                        <option value="Exam notes"  data-select2-id="">Exam notes</option>
+                                                                                                                                                                                                                                                        <option value="Excel homework"  data-select2-id="">Excel homework</option>
+                                                                                                                                                                                                                                                        <option value="Geography Assignment"  data-select2-id="">Geography Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Lab report"  data-select2-id="">Lab report</option>
+                                                                                                                                                                                                                                                        <option value="Literature review"  data-select2-id="">Literature review</option>
+                                                                                                                                                                                                                                                        <option value="Math Assignment"  data-select2-id="">Math Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Movie review"  data-select2-id="">Movie review</option>
+                                                                                                                                                                                                                                                        <option value="Multiple choice questions"  data-select2-id="">Multiple choice questions</option>
+                                                                                                                                                                                                                                                        <option value="Online Lecture to Summary"  data-select2-id="">Online Lecture to Summary</option>
+                                                                                                                                                                                                                                                        <option value="Other"  data-select2-id="">Other</option>
+                                                                                                                                                                                                                                                        <option value="Other Assignment"  data-select2-id="">Other Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Personal statement"  data-select2-id="">Personal statement</option>
+                                                                                                                                                                                                                                                        <option value="Physics Assignment"  data-select2-id="">Physics Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Poster presentation"  data-select2-id="">Poster presentation</option>
+                                                                                                                                                                                                                                                        <option value="PowerPoint Presentation"  data-select2-id="">PowerPoint Presentation</option>
+                                                                                                                                                                                                                                                        <option value="Presentation"  data-select2-id="">Presentation</option>
+                                                                                                                                                                                                                                                        <option value="Problem solving"  data-select2-id="">Problem solving</option>
+                                                                                                                                                                                                                                                        <option value="Programming Assignment"  data-select2-id="">Programming Assignment</option>
+                                                                                                                                                                                                                                                        <option value="Question & Answer"  data-select2-id="">Question & Answer</option>
+                                                                                                                                                                                                                                                        <option value="Reflective report"  data-select2-id="">Reflective report</option>
+                                                                                                                                                                                                                                                        <option value="Report"  data-select2-id="">Report</option>
+                                                                                                                                                                                                                                                        <option value="Research paper"  data-select2-id="">Research paper</option>
+                                                                                                                                                                                                                                                        <option value="Research proposal"  data-select2-id="">Research proposal</option>
+                                                                                                                                                                                                                                                        <option value="Resume"  data-select2-id="">Resume</option>
+                                                                                                                                                                                                                                                        <option value="Rewriting"  data-select2-id="">Rewriting</option>
+                                                                                                                                                                                                                                                        <option value="Speech"  data-select2-id="">Speech</option>
+                                                                                                                                                                                                                                                        <option value="Term paper"  data-select2-id="">Term paper</option>
+                                                                                                                                                                                                                                                        <option value="Thesis"  data-select2-id="">Thesis</option>
+                                                                                                                                                                                                                                                        <option value="Thesis proposal"  data-select2-id="">Thesis proposal</option>
+                                                                                                                                                                                                                                                        <option value="Thesis statement"  data-select2-id="">Thesis statement</option>
+                                                                                                                                                                                                                                                        <option value="Typing"  data-select2-id="">Typing</option>
+                                                                                                                                                                                            
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <label for="subject">Subject</label>
+                        <div class="filter-single-inner">
+                            <select id="subject" data-placeholder="Select subject"
+                                    class="select2-multi-search form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    name="subject[]" multiple="multiple" data-show-selected="true">
+                                <option value="any" data-select2-id=""  selected>Any</option>
+                                                                            <option value="86" data-select2-id="" >3D CAD modeling</option>
+                                                                            <option value="1" data-select2-id="" >Accounting</option>
+                                                                            <option value="1012" data-select2-id="" >Advertising</option>
+                                                                            <option value="87" data-select2-id="" >Algorithms</option>
+                                                                            <option value="2" data-select2-id="" >Anthropology</option>
+                                                                            <option value="4" data-select2-id="" >Art & architecture</option>
+                                                                            <option value="42" data-select2-id="" >Astronomy</option>
+                                                                            <option value="65" data-select2-id="" >Aviation</option>
+                                                                            <option value="34" data-select2-id="" >Biology</option>
+                                                                            <option value="5" data-select2-id="" >Business</option>
+                                                                            <option value="35" data-select2-id="" >Chemistry</option>
+                                                                            <option value="6" data-select2-id="" >Classic English literature</option>
+                                                                            <option value="7" data-select2-id="" >Communication</option>
+                                                                            <option value="59" data-select2-id="" >Computer Science</option>
+                                                                            <option value="85" data-select2-id="" >Computer science</option>
+                                                                            <option value="68" data-select2-id="" >Criminal Justice</option>
+                                                                            <option value="8" data-select2-id="" >Criminal Law</option>
+                                                                            <option value="46" data-select2-id="" >Culture and Ethnic Studies</option>
+                                                                            <option value="84" data-select2-id="" >Data analysis and reports</option>
+                                                                            <option value="83" data-select2-id="" >Database design and optimization</option>
+                                                                            <option value="69" data-select2-id="" >Design</option>
+                                                                            <option value="81" data-select2-id="" >Desktop application development</option>
+                                                                            <option value="49" data-select2-id="" >Ecology</option>
+                                                                            <option value="9" data-select2-id="" >Economics</option>
+                                                                            <option value="10" data-select2-id="" >Education</option>
+                                                                            <option value="38" data-select2-id="" >Engineering</option>
+                                                                            <option value="39" data-select2-id="" >English</option>
+                                                                            <option value="37" data-select2-id="" >Environmental studies</option>
+                                                                            <option value="63" data-select2-id="" >Ethics</option>
+                                                                            <option value="11" data-select2-id="" >Family and consumer science</option>
+                                                                            <option value="12" data-select2-id="" >Film studies</option>
+                                                                            <option value="14" data-select2-id="" >Finance</option>
+                                                                            <option value="73" data-select2-id="" >Financial Management</option>
+                                                                            <option value="41" data-select2-id="" >Geography</option>
+                                                                            <option value="51" data-select2-id="" >Geology</option>
+                                                                            <option value="75" data-select2-id="" >Government</option>
+                                                                            <option value="58" data-select2-id="" >Health Care</option>
+                                                                            <option value="15" data-select2-id="" >History</option>
+                                                                            <option value="62" data-select2-id="" >Homeland Security</option>
+                                                                            <option value="47" data-select2-id="" >Human Resource Management</option>
+                                                                            <option value="79" data-select2-id="" >Human Services</option>
+                                                                            <option value="71" data-select2-id="" >Humanities</option>
+                                                                            <option value="48" data-select2-id="" >Investments</option>
+                                                                            <option value="52" data-select2-id="" >Journalism</option>
+                                                                            <option value="16" data-select2-id="" >Law</option>
+                                                                            <option value="1015" data-select2-id="" >Leadership</option>
+                                                                            <option value="55" data-select2-id="" >Linguistics</option>
+                                                                            <option value="33" data-select2-id="" >Literature</option>
+                                                                            <option value="64" data-select2-id="" >Logic</option>
+                                                                            <option value="61" data-select2-id="" >Logistics</option>
+                                                                            <option value="17" data-select2-id="" >Management</option>
+                                                                            <option value="18" data-select2-id="" >Marketing</option>
+                                                                            <option value="19" data-select2-id="" >Mathematics</option>
+                                                                            <option value="78" data-select2-id="" >Media</option>
+                                                                            <option value="20" data-select2-id="" >Medicine</option>
+                                                                            <option value="1018" data-select2-id="" >Military science</option>
+                                                                            <option value="82" data-select2-id="" >Mobile application development</option>
+                                                                            <option value="21" data-select2-id="" >Music</option>
+                                                                            <option value="22" data-select2-id="" >Nursing</option>
+                                                                            <option value="56" data-select2-id="" >Nutrition</option>
+                                                                            <option value="999" data-select2-id="" >Other</option>
+                                                                            <option value="1021" data-select2-id="" >Pharmacology</option>
+                                                                            <option value="23" data-select2-id="" >Philosophy</option>
+                                                                            <option value="36" data-select2-id="" >Physics</option>
+                                                                            <option value="53" data-select2-id="" >Poetry</option>
+                                                                            <option value="26" data-select2-id="" >Political science</option>
+                                                                            <option value="45" data-select2-id="" >Programming</option>
+                                                                            <option value="70" data-select2-id="" >Project Management</option>
+                                                                            <option value="25" data-select2-id="" >Psychology</option>
+                                                                            <option value="74" data-select2-id="" >Public health</option>
+                                                                            <option value="24" data-select2-id="" >Religious studies</option>
+                                                                            <option value="67" data-select2-id="" >Risk Management</option>
+                                                                            <option value="72" data-select2-id="" >Science</option>
+                                                                            <option value="27" data-select2-id="" >Shakespeare studies</option>
+                                                                            <option value="1024" data-select2-id="" >Social Work</option>
+                                                                            <option value="28" data-select2-id="" >Sociology</option>
+                                                                            <option value="60" data-select2-id="" >Sports</option>
+                                                                            <option value="40" data-select2-id="" >Statistics</option>
+                                                                            <option value="66" data-select2-id="" >Supply Chain Management</option>
+                                                                            <option value="29" data-select2-id="" >Technology</option>
+                                                                            <option value="13" data-select2-id="" >Theater studies</option>
+                                                                            <option value="76" data-select2-id="" >Theology</option>
+                                                                            <option value="50" data-select2-id="" >Tourism</option>
+                                                                            <option value="80" data-select2-id="" >Web programming</option>
+                                                                            <option value="30" data-select2-id="" >Women and gender studies</option>
+                                                                            <option value="31" data-select2-id="" >World affairs</option>
+                                                                            <option value="32" data-select2-id="" >World literature</option>
+                                                                    
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <label for="deadline-filter">Deadline</label>
+                        <div class="filter-single-inner">
+                            <select id="deadline-filter"  data-placeholder="Select deadline"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    name="deadline[]" multiple="multiple">
+                                <option value="any" data-select2-id="" selected>Any</option>
+                                <option value="less_than_3_hours" data-select2-id="" >Less than 3 hours</option>
+                                <option value="3_hours_24_hours" data-select2-id="" >3 hours - 24 hours</option>
+                                <option value="24_hours_3_days" data-select2-id="" >24 hours - 3 days</option>
+                                <option value="3_days_7_days" data-select2-id="" >3 days - 7 days</option>
+                                <option value="more_than_7_days" data-select2-id="" >More than 7 days</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <label>Pages</label>
+                        <div class="filter-single-inner">
+                            <div class="dropdown-pages-wrap dropdown">
+                                <button class="btn dropdown-toggle dropdown-toggle-placeholder" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-content-pages="Select">
+                                    Select                                    </button>
+                                <div class="dropdown-pages plus-minus-group dropdown-menu w-100"
+                                     aria-labelledby="dropdownMenuButton">
+                                    <div class="pages-input-group d-flex align-items-center justify-content-center mb-3">
+                                        <label>From</label>
+                                        <div class="input-group" data-input-group="">
+                                            <div class="input-group-prepend">
+                                                <button id="button-addon-minus"
+                                                        class=" button-addon-minus btn"
+                                                        type="button"  data-minus-button="true"></button>
+                                            </div>
+                                            <input type="text" name="pages_from" class="input-pages input-plus-minus form-control" value="1"
+                                                   aria-label=""
+                                                   aria-describedby="" data-only-digit="true" data-min-value="1" placeholder="1"  maxlength="4" data-max-value="9999">
+                                            <div class="input-group-append">
+                                                <button id="button-addon-plus" class="button-addon-plus btn"
+                                                        type="button"  data-add-button="true">+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pages-input-group d-flex align-items-center justify-content-center">
+                                        <label>To</label>
+                                        <div class="input-group" data-input-group="">
+                                            <div class="input-group-prepend">
+                                                <button id="button-addon-minus"
+                                                        class=" button-addon-minus btn"
+                                                        type="button"  data-minus-button="true"></button>
+                                            </div>
+                                            <input type="text" name="pages_to" class="input-pages input-plus-minus form-control" value=""
+                                                   aria-label=""
+                                                   aria-describedby=""  data-only-digit="true" maxlength="4" placeholder="max" data-default-value="max"  data-max-value="9999">
+                                            <div class="input-group-append">
+                                                <button id="button-addon-plus" class="button-addon-disabled button-addon-plus btn"
+                                                        type="button"  data-add-button="true">+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <label for="academic-level-filter">Academic level</label>
+                        <div class="filter-single-inner">
+                            <select id="academic-level-filter"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="academic_level[]">
+                                <option value="any" data-select2-id="" selected>Any</option>
+                                <option value="Undergraduate" data-select2-id="" >Undergraduate</option>
+                                <option value="Bachelor" data-select2-id="" >Bachelor</option>
+                                <option value="Professional" data-select2-id="" >Professional</option>
+                                <option value="Super_Easy" data-select2-id="" >Super Easy</option>
+                                <option value="Easy" data-select2-id="" >Easy</option>
+                                <option value="Medium" data-select2-id="" >Medium</option>
+                                <option value="Hard" data-select2-id="" >Hard</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <div class="filter-single-preferences filter-single-wrap col-12 col-md-6 col-lg-3 col-xl-custom">
+                        <label for="preferences-filter">Preferences</label>
+                        <div class="filter-single-inner">
+                            <select id="preferences-filter"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="preferences[]">
+                                <option value="any" data-select2-id="" selected>Any</option>
+                                <option value="help_needed" data-select2-id="" >Help needed</option>
+                                <option value="just_published" data-select2-id="" >Just published</option>
+                                <option value="new_client" data-select2-id="" >New client</option>
+                                <option value="preferred_by_client" data-select2-id="" >Preferred by client</option>
+                                <option value="price_up" data-select2-id="" >Raised price</option>
+                                <option value="urgent" data-select2-id="" >Urgent</option>
+                                <option value="match_discipline" data-select2-id="" >Within proficiency</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-single-checkboxes filter-single-wrap col d-flex align-items-end">
+                           
+                        <div class="filters-check form-check">
+                            <input type="checkbox" class="form-check-input d-none" id="auto-take_checkbox"
+                                   value="1" name="auto_take" data-name="Auto-take" >
+                            <label class="form-check-label auto-take_checkbox" for="auto-take_checkbox">
+                                Auto-take
+                                <span></span>
+                            </label>
+                        </div>
+                                                    <div class="filters-check form-check">
+                            <input type="checkbox" class="form-check-input d-none" id="include-applied_checkbox"
+                                   name='applied' value="1" data-name="Applied" >
+                            <label class="form-check-label" for="include-applied_checkbox">Applied</label>
+                        </div>
+                        <div class="filters-check form-check">
+                            <input type="checkbox" class="form-check-input d-none" id="include-viewed_checkbox"
+                                   name="viewed_by_writer" value="1" data-name="Viewed" >
+                            <label class="form-check-label" for="include-viewed_checkbox">Viewed</label>
+                        </div>
+                        <div class="filters-check form-check">
+                            <input type="checkbox" class="form-check-input d-none" id="starred-orders_checkbox"
+                                   name="starred_orders" value="1" data-name="Starred orders" >
+                            <label class="form-check-label" for="starred-orders_checkbox">Starred orders</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-footer col-12 d-flex justify-content-between">
+                    <button class="btn btn-hide_filters" data-toggle-filters="" type="button">Show Advanced
+                        Filters
+                    </button>
+                    <div class="filter-footer-btns d-flex">
+                        <button class="btn-close-filters btn-custom btn-transparent" data-close-mob-filters=""
+                                type="button">Hide filters
+                        </button>
+                                                    <button class="btn-save-search btn-custom btn-transparent btn-save-dissabled"
+                                data-toggle="modal"
+                                data-target="" data-button-save-search="" type="button">Save search
+                        </button>
+                        <button class="btn-start-search submit_btn btn-custom" data-button-submit-form-available-filter="" type="button">
+                            <div class="sk-fading-circle" style="display: none;" data-spinner-form="">
+                                <div class="sk-circle1 sk-circle"></div>
+                                <div class="sk-circle2 sk-circle"></div>
+                                <div class="sk-circle3 sk-circle"></div>
+                                <div class="sk-circle4 sk-circle"></div>
+                                <div class="sk-circle5 sk-circle"></div>
+                                <div class="sk-circle6 sk-circle"></div>
+                                <div class="sk-circle7 sk-circle"></div>
+                                <div class="sk-circle8 sk-circle"></div>
+                                <div class="sk-circle9 sk-circle"></div>
+                                <div class="sk-circle10 sk-circle"></div>
+                                <div class="sk-circle11 sk-circle"></div>
+                                <div class="sk-circle12 sk-circle"></div>
+                            </div>
+                            <span data-search-text="Search" data-search-applying="Applying">Search</span>
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            
+                            <div class="set-filter-list" data-filter-set-block="" style="display:none;">
+                <div class="set-filter-item" data-filter-set-item-template="" style="display:none;">
+                    <span data-filter-set-text=""></span>
+                    <button class="del-seted-filter btn"></button>
+                </div> 
+                                     
+                <button class="clear-seted-filter btn" data-clear-filter="">Clear all</button>
+            </div>
+                        </div>
+
+        <div class="no-results-alarm" style="display: none;">
+            No results found. Adjust filters to get better results.
+        </div>
+
+        <div class="order-list-inner">
+            <div class="orders-caption d-flex justify-content-between">
+                <div class="order-numbers-count d-flex align-items-center" data-counter-my-orders=""></div>
+                <div class="order-list-filter d-flex align-items-center justify-content-between">
+                    <div class="order-list-sort">
+                        <div class="filter-single-wrap select2-custom-default">
+                            <div class="filter-single-inner d-flex align-items-center">
+                                <label for="type-of-sort">Sort:</label>
+                                <select id="type-of-sort" class="select2-custom-single form-control select2-hidden-accessible" data-select-sort-available-orders="" name="order">
+                                                                            <option value="99" data-sort-field="writer_default"  data-sort-direction="asc" selected="selected" data-select2-id="">Default</option>
+                                    <option value="3" data-sort-field="writer_deadline_date_available_orders"  data-sort-direction="asc"  data-select2-id="">Deadline ascending</option>
+                                    <option value="4" data-sort-field="writer_deadline_date_available_orders" data-sort-direction="desc"   data-select2-id="">Deadline descending</option>
+                                    <option value="5" data-sort-field="writer_price_available_orders"  data-sort-direction="asc"  data-select2-id="">Price ascending</option>
+                                    <option value="6" data-sort-field="writer_price_available_orders"  data-sort-direction="desc"  data-select2-id="">Price descending</option>
+                                </select>
+                                <div class="select-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-list-view d-flex align-items-center">
+                        <div class="label">View:</div>
+                        <div id="order-list-large" class="order-view-checker  ">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="8" rx="1" fill="#D9DEE1"/><rect y="10" width="20" height="8" rx="1" fill="#D9DEE1"/></svg>
+                        </div>
+                        <div id="order-list-short" class="order-view-checker active">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="2" rx="1" fill="#D9DEE1"/><rect y="4" width="20" height="2" rx="1" fill="#D9DEE1"/><rect y="8" width="20" height="2" rx="1" fill="#D9DEE1"/><rect y="12" width="20" height="2" rx="1" fill="#D9DEE1"/><rect y="16" width="20" height="2" rx="1" fill="#D9DEE1"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-main-wrap short-active short-wrap short-wrap-new">
+                <div class="order-list-th">
+                    <div class="th-title th-id">Order ID</div>    
+                    <div class="th-title th-subject">Subject</div>
+                    <div class="th-title th-quantity">Amount <span class="d-none d-md-inline-block">of work</span></div>
+                    <div class="th-title th-top">Type of paper</div>
+                    <div class="th-title th-price">Price</div>
+                    <div class="th-title th-date">Deadline</div>
+                    <div class="th-title th-tow">
+                        <span class="span-th-tow">Type of work</span>
+                        <span class="span-th-topic">Topic</span>
+                    </div>
+                    <div class="th-title th-preferences">Preferences</div>
+                </div>
+                <div class="list-content" data-all-items-loaded="true"></div>                      
+
+                <div data-block-not-found-orders=""></div>
+                <div data-last-order="" class="order-items-showed" style="display:none;">
+                    That's it for now.<br class="d-block d-md-none"> Come later for more orders. 
+                </div>
+            </div>               
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

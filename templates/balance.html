@@ -1,0 +1,133 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="payment-wrapper col-12">
+        <div class="d-flex justify-content-between">
+            <div class="page-caption">Payment Statistics</div>
+            <span data-toggle="modal" data-target="#PaymentProcess"><a class="btn-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click here to know more about our payment process." ><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.95066 4.84132C8.69076 4.84132 9.13538 5.2361 9.13538 5.90203C9.13538 7.11148 6.97648 7.44485 6.97648 8.9127C6.97648 9.30747 7.23488 9.73894 7.76563 9.73894C8.57991 9.73894 8.48141 9.13441 8.77769 8.70215C9.17207 8.12275 11.0108 7.50586 11.0108 5.90163C11.0108 4.16262 9.45679 3.43408 7.87728 3.43408C6.37275 3.43408 4.99023 4.50755 4.99023 5.71701C4.99023 6.21028 5.36069 6.46947 5.79255 6.46947C6.98844 6.46987 6.37195 4.84132 7.95066 4.84132Z" fill="#353839"/><path d="M8.82704 11.5532C8.82704 10.9977 8.37045 10.5415 7.81538 10.5415C7.2603 10.5415 6.80371 10.9985 6.80371 11.5532C6.80371 12.1086 7.2603 12.5648 7.81538 12.5648C8.37045 12.5648 8.82704 12.1086 8.82704 11.5532Z" fill="#353839"/><path d="M16 8C16 3.58887 12.4111 0 8 0C3.58887 0 0 3.58887 0 8C0 12.4111 3.58887 16 8 16C12.4111 16 16 12.4115 16 8ZM0.797528 8C0.797528 4.02871 4.02871 0.797528 8 0.797528C11.9713 0.797528 15.2025 4.02871 15.2025 8C15.2025 11.9713 11.9713 15.2025 8 15.2025C4.02871 15.2025 0.797528 11.9713 0.797528 8Z" fill="#353839"/></svg><span>Payment process</span></a></span>
+        </div>           
+        <div class="d-flex pay-wrap-line">
+            <div class="pay-wrap pay-wrap-balance">
+                <div class="title">My balance</div>
+                <div class="balance-value">$  18.70</div>
+                                        <div class="last-payment d-flex align-items-center">Last payment: $142.00 (Jan 01, 2024)&nbsp;<div class="d-inline-block order-option-tooltip" data-toggle="tooltip" data-html="true" title="" data-original-title="Contact Help Desk<br>if any questions arise"></div></div>
+                                </div>
+              
+            <div class="pay-wrap pay-wrap-method" >
+                <div class="title">Payment method (Preferred) </div>
+                                        <div class="paymen-method">Payoneer Prepaid MasterCard</div>
+                    <a class="link" data-ajax-load-page="/settings?tab=payment_details" href="https://admin.writerbay.com/settings?tab=payment_details">Check your payment details</a>
+                                </div>
+            <div class="d8 d-flex d-md-none"></div>
+        </div>
+        <div class="payment-wrap">                
+            <ul class="tabs tabs-list d-flex">
+                <li class="tab-link current" data-tab="tab-balance-history">Balance History</li>
+                <li class="tab-link" data-tab="tab-payment-history">Payment History</li>
+            </ul>
+            <div class="tab-wrap">
+                <div id="tab-balance-history" class="tab-content current">
+                    <div class="filter d-none d-md-flex justify-content-between" data-filter="balance-history">
+                        <form action="" id="form-balance-history">
+                            <div class="d-flex align-items-center">
+                                <div class="order-option-tooltip mr-2" style="margin-left: -20px;" data-toggle="tooltip" title="" data-original-title="Transactions up to 1 year are reflected here"></div>
+                                <div class="datetimepicker_wrap datepricker-new-addon">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control datetimepicker" data-calendar="payment" id="datetimepicker-balance" name="date_balance_history" readonly />
+                                        <input type="hidden" value="" name="date_from">
+                                        <input type="hidden" value="" name="date_to">
+                                        <span class="input-group-addon icon-close-datetimepicker">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>                                     
+                                <div class="filter-single-wrap d-flex align-items-center">
+                                    <div class="filter-single-inner d-flex align-items-center">
+                                        <label for="transaction-select">Transactions:</label>
+                                        <select id="transaction-select"
+                                                class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                                 name="transaction_type[]">
+                                            <option value="any" selected>All</option>
+                                            <option value="1">Earnings</option>
+                                            <option value="2">Subtractions </option>
+                                        </select>
+                                        <div class="select-arrow"></div>
+                                    </div>                                
+                                </div>
+                            </div>
+                        </form>
+                        <div class="btn btn-custom btn-darkblack" data-id-form="form-balance-history" data-link-csv="getCsvBalanceHistory">Download</div>                           
+                    </div>
+                    <div class="cases">
+                        <div class="d-none" data-balance-history-head="" style="display:none;">
+                            <div class="case-th th-date">Date</div>
+                            <div class="case-th th-value">Amount</div>
+                            <div class="case-th th-info">Info</div>
+                        </div>
+                        <div class="case-body d-flex flex-column">                                
+                            <div class="balance-history-list-content"></div>                      
+                            <div data-block-not-found-balance-history=""></div>                                
+                            <div class="case-row" data-sum-balance-history-block="" style="display:none;">       
+                                <div class="case-td case-total">Total:</div>
+                                <div class="case-td case-total-value"><span data-sum-balance-history-minus="" style="display:none;">-</span>$ <span data-sum-balance-history=""></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+                <div id="tab-payment-history" class="tab-content">
+                    <div class="filter d-none d-md-flex justify-content-between" data-filter="payment-history">
+                        <form action="" id="form-payment-history">                                
+                            <div class="d-flex align-items-center">
+                                <div class="order-option-tooltip mr-2" style="margin-left: -20px;" data-toggle="tooltip" title="" data-original-title="Transactions up to 1 year are reflected here"></div>
+                                <div class="datetimepicker_wrap datepricker-new-addon">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control datetimepicker" data-calendar="payment" id="datetimepicker-history" name="date_payment_history" readonly />
+                                        <input type="hidden" value="" name="date_from">
+                                        <input type="hidden" value="" name="date_to">
+                                        <span class="input-group-addon icon-close-datetimepicker">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>                                     
+                                <div class="filter-single-wrap d-flex align-items-center">
+                                    <div class="filter-single-inner d-flex align-items-center">
+                                        <label for="payment-method-select">Payment method:</label>
+                                        <select id="payment-method-select"
+                                                class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                                multiple="multiple" name="payment_method[]">
+                                            <option value="any" selected>Any</option>
+                                                                                                <option value="Payoneer Prepaid MasterCard" >Payoneer Prepaid MasterCard</option>
+                                                                                        </select>
+                                        <div class="select-arrow"></div>
+                                    </div>                                
+                                </div>
+                                <div class="filters-check form-check d-flex">
+                                    <input type="checkbox" class="form-check-input d-none" id="max-profit" value="1" name="maximum_profit">
+                                    <label class="form-check-label" for="max-profit">Maximum profit</label>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="btn btn-custom btn-darkblack" data-id-form="form-payment-history" data-link-csv="getCsvPaymentHistory">Download</div>
+                    </div>
+                    <div class="cases">
+                        <div class="d-none" data-payment-history-head="" style="display:none;">
+                            <div class="case-th th-date">Date</div>
+                            <div class="case-th th-value">Amount</div>
+                            <div class="case-th th-method">Payment method</div>
+                        </div>
+                        <div class="case-body d-flex flex-column">                                
+                            <div class="payment-history-list-content"></div>                      
+                            <div data-block-not-found-payment-history=""></div>                  
+                            <div class="case-row" data-sum-payment-history-block="" style="display:none;">       
+                                <div class="case-td case-total">Total:</div>
+                                <div class="case-td case-total-value">-$ <span data-sum-payment-history=""></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>   
+        </div>
+    </div>
+</div> 
+{% endblock %}

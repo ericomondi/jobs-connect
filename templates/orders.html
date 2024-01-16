@@ -1,0 +1,132 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+
+
+<div class="my-orders-page row">
+    <div class="orders-wrapper col-12">
+        <div class="d-flex justify-content-between">
+            <div class="page-caption">My orders</div>
+        </div>
+        <div class="filter-wrap mb-0">
+            <ul class="tabs tabs-list d-flex" data-tab-my-orders="">
+                <li class="tab-link current" data-tab-status="active">Active<span data-toggle="tooltip" data-placement="top" title="Files/Messages unprocessed" class="counter" data-counter-active="" style="display: none;"></span></li>
+                <li class="tab-link" data-tab-status="approved">Approved<span data-toggle="tooltip" data-placement="top" title="Files/Messages unprocessed" class="counter" data-counter-approved="" style="display: none;"></span></li>
+                <li class="tab-link" data-tab-status="cancelled">Cancelled<span data-toggle="tooltip" data-placement="top" title="Files/Messages unprocessed" class="counter" data-counter-cancelled="" style="display: none;"></span></li>
+            </ul>
+        </div>
+        <div class="orders-search">
+            <form class="filter-search-wrap" action="" id="form-my-orders">
+                <input  type="text" placeholder="Search by keyword or Order ID"
+                       name="query_string" autocomplete="off" id="search-by-order"
+                       class="search-inline live-search-box" data-valid-latin-digit="" >
+                <div class="filter_r_wrap">
+                    <div class="filter-single-wrap" data-myorders-approved="">
+                        <label for="status">Status</label>
+                        <div class="filter-single-inner">
+                            <select id="status-select"
+                                    class="form-control select2-hidden-accessible select2-custom-multi select2-custom-all"
+                                    multiple="multiple" name="status[]" data-show-selected="true">
+                                <option value="any" data-select2-id="" selected>Any</option>
+                                <option value="confirmation_pending"  data-select2-id="">Confirmation Pending</option>
+                                <option value="13"  data-select2-id="">Revision in progress</option>
+                                <option value="11"  data-select2-id="">Clarification Pending</option>
+                                <option value="10"  data-select2-id="">In progress</option>
+                                <option value="12"  data-select2-id="">Submitted</option>
+                                <option value="15"  data-select2-id="">Delivered</option>
+                                <option value="19"  data-select2-id="">Quality Evaluation</option>
+                                <option value="18"  data-select2-id="">Claim</option>
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                    </div>
+                    <button class="btn-start-search submit_btn btn-custom d-flex" data-button-submit-form-filter="" type="button">
+                        <span data-search-text="">Search</span>
+                        <span data-search-applying="" style="display: none;">Applying</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="set-filter-list" data-filter-set-block="" style="display:none;">
+            <div class="set-filter-item" data-filter-set-item-template="" style="display:none;">
+                <span data-filter-set-text=""></span>
+                <button class="del-seted-filter btn"></button>
+            </div>   
+                           
+        </div>
+
+
+        <div class="order-list-inner" data-block-order-list-filters="">
+            <div class="orders-caption d-flex justify-content-between">
+                <div class="order-numbers-count d-flex align-items-center" data-counter-my-orders=""></div>
+                <div class="order-list-filter d-flex align-items-center justify-content-between">
+                    <div class="order-list-sort">
+                        <div class="filter-single-wrap select2-custom-default" data-myorders-approved="">
+                            <div class="filter-single-inner d-flex align-items-center">
+                                <label for="type-of-sort">Sort:</label>
+                                <select id="type-of-sort" class="select2-custom-single form-control select2-hidden-accessible" data-select-sort-my-orders="" name="order">
+                                    <option value="1" data-sort-field="status_my_orders" data-sort-direction="asc" data-select2-id="" selected="selected">Status</option>
+                                                                            <option value="4" data-sort-field="writer_deadline_date_my_orders" data-sort-direction="asc"  data-select2-id="">Deadline ascending</option>
+                                    <option value="5" data-sort-field="writer_deadline_date" data-sort-direction="desc"  data-select2-id="">Deadline descending</option>
+                                </select>
+                                <div class="select-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-list-view d-flex align-items-center">
+                        <div class="label" for="label-view">View:</div>
+                        <div id="order-list-large" class="order-view-checker ">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="8" rx="1" fill="#D9DEE1"/>
+                                <rect y="10" width="20" height="8" rx="1" fill="#D9DEE1"/>
+                            </svg>
+                        </div>
+                        <div id="order-list-short" class="order-view-checker active">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="2" rx="1" fill="#D9DEE1"/>
+                                <rect y="4" width="20" height="2" rx="1" fill="#D9DEE1"/>
+                                <rect y="8" width="20" height="2" rx="1" fill="#D9DEE1"/>
+                                <rect y="12" width="20" height="2" rx="1" fill="#D9DEE1"/>
+                                <rect y="16" width="20" height="2" rx="1" fill="#D9DEE1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-main-wrap short-active short-wrap">
+                <div class="order-list-th">
+                    <div class="th-title th-id">Order ID</div>
+                    <div class="th-title th-subject">Subject</div>
+                    <div class="th-title th-quantity">Amount <span class="d-none d-md-inline-block">of work</span></div>
+                    <div class="th-title th-top">Type of paper</div>
+                    <div class="th-title th-price">Price</div>
+                    <div class="th-title th-date">Deadline</div>
+                    <div class="th-title th-type-work">Type of work</div>
+                </div>
+                <div class="list-content" data-all-items-loaded="true">
+                    
+                </div>  
+                
+                                    <div data-block-not-found-orders=""></div>
+                <div data-last-order="" style="display:none;">
+                    <span>That's it for now.</span><span>Come later for more orders.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id='orders_list_item_template' type='text/x-jsmart-tmpl'><div class="ajax-order-list"> {foreach from=$orders key=group_name item=order_array} {assign var='date_attr_group_orders' value=['Not confirmed'=>'confirmed', 'Working' => 'working', 'Completed' => 'complited', 'Other' => 'other','Approved' => 'approved']} {assign var='date_class_status_order' value=['In progress'=>'in_progress', 'Clarification pending' => 'clarification_pending', 'Revision in progress' => 'revision_in_progress', 'Delivered' => 'delivered', 'Approved' => 'approved', 'Claim' => 'claim', 'Quality Evaluation' => 'quality_evaluation', 'Submitted' => 'submitted', 'Cancelled' => 'cancelled']} {if $group_name && $last_status_category!=$date_attr_group_orders.$group_name} <div class="order-category" data-status-category="{$date_attr_group_orders.$group_name}">{$group_name|upper}</div> {/if} {foreach from=$order_array item=order} <div class="order-item {if $short_view}short-view{/if} {if $order.programming_related}order-item--programming{/if}" {if ($order.time_left.d < 0 || $order.time_left.h < 0 || $order.time_left.m < 0) && !$order.writer_status|in_array:['Approved', 'Cancelled', 'Delivered', 'Submitted', 'Claim', 'Quality Evaluation']}data-dedline="negative"{elseif (!$order.time_left.d || $order.time_left.d<0) && $order.time_left.h < 2 && $order.writer_status|in_array:['Revision in progress', 'Clarification Pending', 'In progress']}data-dedline="hot"{/if}> <div class="order-item-header d-flex justify-content-between"> <div class="order-item-header-l"> <div class="order-item-id"><span class="order-id-value"><a href="/my_orders?subcom=detailed&id={$order.id}" data-ajax-load-page="/my_orders?subcom=detailed&id={$order.id}">ID {$order.id}</a></span></div> <div class="order-item-title"><a class="order-item-title" href="/my_orders?subcom=detailed&id={$order.id}" data-ajax-load-page="/my_orders?subcom=detailed&id={$order.id}">{if $order.type_of_work_id == 3}{$order.paper_type}{else}{$order.topic}{/if}</a></div> </div> <div class="order-item-header-r"> <a href="javascript:void(0);" class="btn-order-status {if $order.confirmation_pending}btn-order-status-confirmation{/if}" data-status="{$date_class_status_order.{$order.writer_status}}">{if $order.confirmation_pending}Confirmation Pending{else}{$order.writer_status}{/if}</a> </div> </div> <div class="order-item-body"> <div class="order-item-wrap order-item-wrap-1 order-item-wrap--subject"> <div class="order-item-label">{if $order.programming_related}Category{else}Subject{/if}:</div> <div class="order-item-subject order-item-val">{$order.subject}</div> </div> {if $order.programming_related} <div class="order-item-wrap order-item-wrap-2 order-item-wrap--difficulty-lvl"> <div class="order-item-label">Difficulty level:</div> <div class="order-item-subject order-item-val">{$order.academic_level_name}</div> </div> <div class="order-item-wrap order-item-wrap-3 order-item-wrap--programming-lng"> <div class="order-item-label">Programming language:</div> <div class="order-item-subject order-item-val">{$order.programming_language_name}</div> </div> {/if} <div class="order-item-wrap order-item-wrap-2 order-item-wrap--amount-work"> <div class="order-item-label">Amount of work:</div> <div class="order-item-amount order-item-val"> <div class="amount-wrapper"> {if $order.programming_related} <span class="amount-wrapper--na-desc">Not applicable</span> <span class="amount-wrapper--na-mob">n/a</span> {else} {if $order.pages>0 || $order.slides>0} <span class="amount-row">{if $order.pages>0} {$order.pages} page{if $order.pages>1}s{/if}{/if} <span class="amount-type {if $order.pages<=0}ml-0{/if} {if $order.spacing != 2}amount-type-single{/if}" data-toggle="tooltip" title="{if $order.spacing == 2}Use double spacing{else}Use single spacing{/if}" >{if $order.spacing == 2}Double{else}Single{/if}</span></span> {if $order.slides>0}<span class="amount-row"><span class="amount-slides">{if $order.slides>0} {$order.slides} slide{if $order.slides>1}s{/if}{/if}</span></span>{/if} {elseif $order.questions>0} <span class="amount-row">{$order.questions} question{if $order.questions>1}s{/if}</span> {elseif $order.problems>0} <span class="amount-row">{$order.problems} problem{if $order.problems>1}s{/if}</span> {/if} {if $order.charts && $order.charts>0} <span class="amount-row">{$order.charts} chart{if $order.charts>1}s{/if}</span> {/if} {/if} </div> </div> </div> <div class="order-item-wrap order-item-wrap-3 order-item-wrap--type-paper"> <div class="order-item-label">Type of paper:</div> <div class="order-item-type-of-paper order-item-val">{if $order.paper_type}{$order.paper_type}{else}{$order.paper_type_inquiry}{/if}</div> </div> <div class="order-item-wrap order-item-wrap-4 order-item-wrap--type-work"> <div class="order-item-label">Type of work:</div> <div class="order-item-type-of-work order-item-val">{$order.work_type}</div> </div> </div> <div class="order-item-footer"> <div class="order-item-footer-l"> <div class="order-item-wrap order-item-wrap-1"> <div class="order-item-price"> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.07082 5.72305L17.846 1.6691L17.7138 1.0522C17.5375 0.30313 16.7444 -0.137516 15.9953 0.0387078L2.95211 3.38762C2.20301 3.56388 1.76236 4.35704 1.93862 5.10614L2.07082 5.72305Z" fill="#64B564"/><path d="M18.8592 11.1428C19.6083 10.9665 20.049 10.1734 19.8727 9.42425L18.5948 4.40088L7.57861 7.22102H15.0255C16.5238 7.22102 17.7576 8.45483 17.7576 9.95303V11.4513L18.8592 11.1428Z" fill="#64B564"/><path d="M16.3918 9.95304C16.3918 9.15987 15.7749 8.54297 14.9817 8.54297H1.49796C0.704796 8.54297 0.0878906 9.15987 0.0878906 9.95304V18.5897C0.0878906 19.3829 0.704796 19.9998 1.49796 19.9998H14.9817C15.7749 19.9998 16.3918 19.3829 16.3918 18.5897V9.95304ZM1.63015 10.9665C1.63015 10.614 1.93861 10.3056 2.29112 10.3056H9.78212C10.1346 10.3056 10.4431 10.614 10.4431 10.9665C10.4431 11.319 10.1346 11.6275 9.78212 11.6275H2.29112C1.93861 11.6275 1.63015 11.3191 1.63015 10.9665ZM10.1346 18.7219C8.90082 18.7219 7.88734 17.7085 7.88734 16.4746C7.88734 15.2408 8.90082 14.2714 10.1346 14.2714C11.3684 14.2714 12.3819 15.2849 12.3819 16.5187C12.3819 17.7525 11.3684 18.7219 10.1346 18.7219ZM14.9817 16.5187C14.9817 17.7525 13.9683 18.766 12.7344 18.766C12.6023 18.766 12.426 18.766 12.2938 18.7219C12.8666 18.1491 13.1751 17.4 13.1751 16.5187C13.1751 15.6374 12.8226 14.8883 12.2938 14.3155C12.426 14.2714 12.5582 14.2714 12.7344 14.2714C14.0123 14.2714 14.9817 15.2849 14.9817 16.5187Z" fill="#64B564"/></svg> {$order.writer_price|money:$current_user.currency_sign} </div> {if $order.writer_status == 'Approved' && $order.bonuses} <div class="order-item-bonus">+ {$order.bonuses|money:$current_user.currency_sign}<span>bonus</span> </div> {elseif !$order.writer_status|in_array:['Approved', 'Cancelled', 'Claim','Quality Evaluation'] && $order.bonus_percent} <div class="order-item-bonus">+{$order.bonus_percent}% <span>bonus</span></div> {/if} </div> {if $order.writer_status == 'Approved'} {if $order.writer_rate} <div class="order-item-wrap order-item-wrap-2"> <div class="order-item-rate"> <div class="stars-row"> {for $foo=1 to 5} <span class="rate-star {if $foo>$order.writer_rate}checked{/if}"></span> {/for} <div class="star-counter">{$order.writer_rate}</div> </div> <div class="order-item-label d-none d-md-block short-view-rate">Writer Rate </div> {if $order.tips && $order.tips!='0.00'} <div class="order-item-label d-block d-md-none short-view-tips">Tips - {$order.tips|money:$current_user.currency_sign}</div> {/if} </div> </div> {/if} {elseif $order.writer_status|in_array:['Approved', 'Cancelled', 'Claim','Quality Evaluation', 'Submitted', 'Delivered']} <div class="order-item-wrap order-item-wrap-2"> <div class="order-item-date"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11H7V13H9V11ZM13 11H11V13H13V11ZM17 11H15V13H17V11ZM19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20Z" fill="#64B564"/></svg> <div class="order-item-date-val">{$order.finale_date_format_date}</div> </div> </div> {else} <div class="order-item-wrap order-item-wrap-2"> <div class="order-item-date"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11H7V13H9V11ZM13 11H11V13H13V11ZM17 11H15V13H17V11ZM19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20Z" fill="#64B564"/></svg> <div class="order-item-date-val"> {if ($order.time_left.d < 0 || $order.time_left.h < 0 || $order.time_left.m < 0)}-{/if} {if $order.time_left.d != 0} {$order.time_left.d|abs}<span class="d-none d-md-block"> days</span> <span class="d-block d-md-none"> d</span> {/if} {$order.time_left.h|abs}<span class="d-none d-md-block"> hours</span> <span class="d-block d-md-none"> h</span> {if $order.time_left.d == 0} {$order.time_left.m|abs} <span class="d-none d-md-block"> min</span> <span class="d-block d-md-none"> m</span> {/if} {if !$order.writer_status|in_array:['Approved', 'Cancelled', 'Claim','Quality Evaluation', 'Submitted', 'Delivered']} <span data-fire-icon="" title="" {if (!$order.time_left.d || $order.time_left.d<0) && $order.time_left.h < 2 && $order.time_left.m >= 0} data-toggle="tooltip" data-placement="top" data-original-title="Deadline approaching" {elseif ($order.time_left.d < 0 || $order.time_left.h < 0 || $order.time_left.m < 0)} data-toggle="tooltip" data-placement="top" data-original-title="Deadline missed" {/if}></span> {/if} </div> </div> <div class="order-item-estimate">{$order.finale_date_format_date}</div> </div> {/if} {if $order.writer_status == 'Approved'} {if $order.tips && $order.tips!='0.00'} <div class="order-item-wrap order-item-wrap-3 d-none d-md-block"> <div class="order-item-tips"> <div class="order-tips-value"> {$order.tips|money:$current_user.currency_sign} </div> <div class="order-item-label">Tips from client</div> </div> </div> {/if} <div class="order-item-wrap order-item-wrap-4 d-none d-md-block"> <div class="order-item-date order-item-date-approved"> <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M2.86455 18.0306V2.40409H15.4851V15.5278L17.8896 13.5417V1.20204C17.8896 0.538298 17.3518 0 16.688 0H1.66251C0.998767 0 0.460938 0.538298 0.460938 1.20204V19.2322C0.460938 19.896 0.998767 20.4343 1.66251 20.4343H12.1514L10.4522 18.0306H2.86455Z" fill="#64B564"/> <path d="M21.3508 12.9229C21.1294 12.7142 20.7891 12.7043 20.556 12.8963L15.0429 17.4526L11.3689 15.2484C11.125 15.1023 10.8128 15.1459 10.6185 15.3556C10.4257 15.5634 10.4046 15.8784 10.5689 16.1106L14.5505 21.7449C14.6619 21.9027 14.843 21.9972 15.0359 21.9991C15.0377 21.9991 15.0396 21.9991 15.0415 21.9991C15.2325 21.9991 15.4127 21.9088 15.5259 21.7534L21.4238 13.7149C21.6017 13.4711 21.5713 13.1317 21.3508 12.9229Z" fill="#64B564"/> <path d="M12.7815 4.20703H5.56876C4.90502 4.20703 4.36719 4.74533 4.36719 5.40907C4.36719 6.07282 4.90502 6.61112 5.56876 6.61112H12.781C13.4448 6.61112 13.9821 6.07282 13.9821 5.40907C13.9821 4.74533 13.4452 4.20703 12.7815 4.20703Z" fill="#64B564"/> <path d="M12.7815 7.81274H5.56876C4.90502 7.81274 4.36719 8.35104 4.36719 9.01479C4.36719 9.67853 4.90502 10.2168 5.56876 10.2168H12.781C13.4448 10.2168 13.9821 9.679 13.9821 9.01479C13.9835 8.35104 13.4452 7.81274 12.7815 7.81274Z" fill="#64B564"/> <path d="M12.7815 11.4192H5.56876C4.90502 11.4192 4.36719 11.9575 4.36719 12.6212C4.36719 13.285 4.90502 13.8233 5.56876 13.8233H12.781C13.4448 13.8233 13.9821 13.285 13.9821 12.6212C13.9835 11.9575 13.4452 11.4192 12.7815 11.4192Z" fill="#64B564"/> </svg> {*<div class="order-item-date-val">20<span class="d-none d-md-block"> days</span><span class="d-block d-md-none"> d</span> 14<span class="d-none d-md-block"> hours</span><span class="d-block d-md-none"> h</span></div>*} {$order.status_approved_format_date} </div> <div class="order-item-estimate">Approved</div> </div> {/if} <div class="order-item-type-of-work order-item-val">{$order.work_type}</div> </div> <div class="order-item-footer-r"> <a href="#" class="btn-order-status {if $order.confirmation_pending}btn-order-status-confirmation{/if}" data-status="{$date_class_status_order.{$order.writer_status}}">{if $order.confirmation_pending}Confirmation Pending{else}{$order.writer_status}{/if}</a> <div class="btn-order-files"data-ajax-load-page="/my_orders?subcom=detailed&id={$order.id}&tab=files"> <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 1.92509V12.0749C12 13.137 11.1295 14 10.0587 14H1.94127C0.870213 14 0 13.137 0 12.0749V1.92509C0 0.86329 0.870213 0 1.94127 0H10.0587C11.1295 0 12 0.86329 12 1.92509Z" fill="#353839"/><path d="M9.17662 11.3746C9.17662 11.6643 8.93971 11.8996 8.64721 11.8996H3.35314C3.06097 11.8996 2.82373 11.6643 2.82373 11.3746C2.82373 11.0849 3.06097 10.8496 3.35314 10.8496H8.64721C8.93971 10.8496 9.17662 11.0849 9.17662 11.3746Z" fill="white"/><path d="M9.17662 8.57529C9.17662 8.86502 8.93971 9.10029 8.64721 9.10029H3.35314C3.06097 9.10029 2.82373 8.86502 2.82373 8.57529C2.82373 8.28523 3.06097 8.05029 3.35314 8.05029H8.64721C8.93971 8.05029 9.17662 8.28523 9.17662 8.57529Z" fill="white"/><path d="M9.17662 6.12509C9.17662 6.41483 8.93971 6.65009 8.64721 6.65009H3.35314C3.06097 6.65009 2.82373 6.41483 2.82373 6.12509C2.82373 5.83536 3.06097 5.6001 3.35314 5.6001H8.64721C8.93971 5.6001 9.17662 5.83536 9.17662 6.12509Z" fill="white"/><path d="M9.17662 3.32578C9.17662 3.61551 8.93971 3.85077 8.64721 3.85077H3.35314C3.06097 3.85077 2.82373 3.61551 2.82373 3.32578C2.82373 3.03572 3.06097 2.80078 3.35314 2.80078H8.64721C8.93971 2.80078 9.17662 3.03572 9.17662 3.32578Z" fill="white"/></svg> <span>Files</span> {if $order.files>0}<div class="counter" data-toggle="tooltip" data-placement="top" title="Files unprocessed">{$order.files}</div>{/if} </div> <div class="btn-order-messages" data-ajax-load-page="/my_orders?subcom=detailed&id={$order.id}&tab=messages"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M14 2.32469V8.57552C14 9.8572 12.9869 10.9002 11.7419 10.9002H7.13599L4.34552 13.773C4.12875 13.9962 3.80308 14.0602 3.52509 13.9409C3.24358 13.8211 3.06093 13.538 3.06093 13.2249V10.9002H2.25806C1.01262 10.9002 0 9.8572 0 8.57552V2.32469C0 1.04301 1.01262 0 2.25806 0H11.7419C12.9869 0 14 1.04301 14 2.32469Z" fill="#353839"/><path d="M9.20776 7.02587C9.20776 7.45413 8.87106 7.80077 8.45507 7.80077H5.54468C5.12869 7.80077 4.79199 7.45413 4.79199 7.02587C4.79199 6.59761 5.12869 6.25098 5.54468 6.25098H8.45507C8.87106 6.25098 9.20776 6.59761 9.20776 7.02587Z" fill="white"/><path d="M10.7131 3.87402C10.7131 4.30228 10.3764 4.64891 9.96045 4.64891H4.03931C3.62332 4.64891 3.28662 4.30228 3.28662 3.87402C3.28662 3.44576 3.62332 3.09912 4.03931 3.09912H9.96045C10.3764 3.09912 10.7131 3.44576 10.7131 3.87402Z" fill="white"/></g><defs><clipPath id="clip0"><rect width="14" height="14" fill="white"/></clipPath></defs></svg> <span>Messages</span> {if $order.messages>0}<div class="counter" data-toggle="tooltip" data-placement="top" title="Messages unprocessed">{$order.messages}</div>{/if} </div> </div> </div> </div> {/foreach} {/foreach} </div></script>
+<script id='not_found_approved_orders' type='text/x-jsmart-tmpl'><div class="preview-wrap" data-filter="no-orders"> <div class="preview-block"> <img src="/public_new/build/img/no-orders.svg" alt=""> <div class="preview-text"><b>Looks like there are no approved orders yet.</b></div> <div class="preview-sm">Your will be able to find all your approved orders here.</div> </div> </div></script>
+<script id='not_found_cancelled_orders' type='text/x-jsmart-tmpl'><div class="preview-wrap" data-filter="no-canceled"> <div class="preview-block"> <img src="/public_new/build/img/no-canceled.svg" alt=""> <div class="preview-text"><b>Looks like there are no cancelled orders yet.</b></div> <div class="preview-sm">You will be able to find all the cancelled orders here.</div> </div> </div></script>
+<script id='not_found_active_orders' type='text/x-jsmart-tmpl'><div class="preview-wrap" data-filter="no-archived"> <div class="preview-block"> <img src="/public_new/build/img/no-orders.svg" alt=""> <div class="preview-text">Looks like you have no orders in progress at the moment.</div> </div> </div></script>                    
+<script id='not_found_by_filter' type='text/x-jsmart-tmpl'><div class="preview-wrap" data-filter="filter-empty"> <div class="preview-block"> <img src="/public_new/build/img/no-result.svg" alt=""> <div class="preview-text">Hmm...We cannot find any orders that would match your parameters. Try searching with another ones. </div> </div> </div></script>     
+
+
+
+
+
+
+{% endblock %}
