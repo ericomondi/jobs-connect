@@ -16,6 +16,8 @@ def orders():
 def my_balance():
     return render_template("balance.html")
 
+
+
 @app.route("/available_orders")
 def available_orders():
     return render_template("available_orders.html")
